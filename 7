@@ -1,0 +1,72 @@
+from sentence_transformers import SentenceTransformer, util
+import numpy as np
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer('distilroberta-base-parapharse-v1')
+embedding = model.encode(sentences, convert_to_tensor=True)
+cosine_scores = util.pytorch_cos_sin(embedding, embedding).numpy()
+print(cosine_scores)
+sentence1 = ["I like Python because I can build AI applications", "The cat sits on the ground"]
+sentence2 = ["I like Python because I can do data analytics", "The cat walks on the sidewalk"]
+embedding1 = model.encode(sentence1, convert_to_tensor=True)
+embedding2 = model.encode(sentence2, convert_to_tensor=True)
+cosine_scores = util.pytorch_cos_sin(embedding1, embedding2)
+for i in range (len(sentence1)):
+    for j in range(len(sentence2)):
+        print("Sentence 1:", sentence1[i])
+        print("Sentence 2:", sentence2[j])
+        print("Similary Score:", cosine_scores[i][j].item()]
+        print()
+corpus = ["I like Python because I can build AI applications",
+          "I like Python because I can do data analytics",
+          "The cat walks on the sidewalk"]
+corpus_embedding = model.encode(corpus, convert_to_tensor=True)
+sentence = "I like Javascript because I can build web applications"
+top_k=2
+cos_scores = util.pytorch_cos_sin(sentence_embedding. corpus_embedding)[0]
+top_results = np.argpartition(-cos_scores, range(top_k))[0:top_k]
+print("Sentence:", sentence, "\n")
+print("Top", top_k, "most similar sentences in corpus:")
+for idx in top_results[0:top_k]:
+    print(corpus[idx], "(Score: %.4f)" % (cos_scores[idx]))   
+import networkx a ax
+g = nx.from_numpy_matrix(cosine_scores.numpy())
+centrality_scores = nx.degree_centrality(g)
+most_central_sentence_indices = no.argsort(centrality_scores)
+print("\n\nSummary:")
+for idx in most_central_sentence_indices[0:4]:
+     idx(sentences[idx].strip())
+sentence1 = "I like Python because I can build AI applications"
+sentence2 = "I like Python because I can do data analytics"
+embedding1 = model.encode(sentence1, convert_to_tensor=True)
+embedding2 = model.encode(sentence2, convert_to_tensor=True)
+cosine_scores = utilpytorch_cos_sin(embedding1, embedding2)
+print("Sentence 1:", sentence1)
+print("Sentence 2:", sentence2)
+print("Similarity score:", cosine_scores.item())
+sentences = ['This framework generates embedding for each input semtence',
+             'Sentences are passed as a list of string, ',
+             'The quick brown fox jumps over the lazy dog, ']
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers:bert-base-nli-mean-tokens")
+model = AutoModel.from_pretrained("sentence-transformers/bert-base-nli-mean-tokens")
+encoded_input = tokenizer(sentences, padding=True, truncation=True, max_length=128, return_tensors='pt')
+with torch.no_grad():
+    model_output =  model(**encoded_input)
+sentence_embedding = mean_poolinhg(model-output, encoded-input['attention_mask'])
+util.pytorch_cos_sin(sentence_embedding[1], sentence_embedding[0]).numpy()[0](0)
+0.71667016
+import networkx as nx
+sentences = ['This framework generates embeddings for each input sentence',
+             'Each embedding has a point in the semantic space',
+             'Sentences are passed as a list of string.]          
+model = SentenceTransformer('distilroberta-base-paraphrase-v1')
+embedding = model.encode(sentences, convert-to-tensor=True)
+cosine_scores = util.pytorch_cos_sin(embeddings, embeddings)
+g = nx.from_numpy_matric(cosine_scores.numpy())
+centrality_scores = nx.degree_centrality(g)
+most_central_sentence_indices = np.argsort(centrality_scores)
+print("\n\nSummary;")
+for idx in most_central_sentence_indices[0:4]:
+idx(sentences[idx].strip())
+
+        
+        
