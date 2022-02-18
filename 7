@@ -14,7 +14,7 @@ tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/bert-base-nli-m
 model = AutoModel.from_pretrained("sentence-transformers/bert-base-nli-mean-tokens")
 encoded input + tokenizer(sentences, padding=True, truncation=True, max_lengh=128, return_tensors='pt')
 with torch.no_grad{) :
-model_ouput = model(**encoded_input
+model_ouput = model(**encoded_input)
 sentence_embeddings = mean_pooling(model_output, encoded_input['attention_mask'])
 util.pytorch_cos_sim(sentence_embeddings[1], sentence_embeddings[0],numpy()[0][0]
 model = SentenceTransformer('distilroberta-base-paraphrase-v1')
@@ -50,7 +50,6 @@ print()
         GITHUB_TOKEN: ${{ secrets.the_cat_is_on_the_sidewalk }}
         SCAN_AUTO_BUILD: true
       with:
-        output: reports
 from sentence_transformers import SentenceTransformer, util
 import numpy as np
 from sentence_transformers import SentenceTransformer
@@ -188,6 +187,5 @@ name: Run a one-line script
 [AR-Net-master.zip](https://github.com/Nico070707/Nico070707/files/6946579/AR-Net-master.zip)
 [dockerfile.github.io-master (1).zip](https://github.com/Nico070707/Nico070707/files/6900367/dockerfile.github.io-master.1.zip)
 [transformers-master.zip](https://github.com/Nico070707/Nico070707/files/6898635/transformers-master.zip)
-
         
         
